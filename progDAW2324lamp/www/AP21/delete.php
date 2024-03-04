@@ -1,6 +1,10 @@
 <?php
 
 require_once "autoloader.php";
-$cartera= new Cartera();
-$cartera->delete(isset($_GET['id']) ? $_GET['id'] : null);
+$id = $_GET['id'];
+$connection = new Connection();
+$conn = $connection->getConn();
+$query = "DELETE FROM Investment WHERE id='$id'";
+$conn->query($query);
+$conn->close();
 header("location: lista.php");

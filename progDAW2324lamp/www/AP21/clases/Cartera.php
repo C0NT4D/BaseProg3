@@ -18,10 +18,10 @@ class Cartera
 
     public function delete($id)
     {
-        $conn= new mysqli ('db', 'root', 'test', "AP21");
+        $connection = new Connection();
+$conn = $connection->getConn();
         $query = "DELETE FROM Investment WHERE id='$id'";
-        $conn -> query($query); 
-        $conn->close();
+        
 
     }
        
@@ -34,26 +34,9 @@ class Cartera
 
    
 
-    public function insert($datos)
-    {
-        $conn = new mysqli('db', 'root', 'test', "AP21");
-            
-        
-            $id = $_POST["id"];
-            $company = $_POST["company"];
-            $investiment = $_POST["investment"];
-            $date = $_POST["date"];
-            $active = $_POST ["active"];
-       
-    $query= "INSERT INTO Investment (Id, Company, Investment, Date, Active)
-    VALUES ('$id','$company','$investiment','$date','$active')";
-    mysqli_query($conn, $query);
-    mysqli_close($conn);
-
-}
 
 
-     function drawList()
+     /*function drawList()
     {
         $conn = new mysqli('db', 'root', 'test', "AP21");
                 
@@ -86,5 +69,5 @@ class Cartera
         echo '</table>';
         $result->close();
         mysqli_close($conn);
-    }
+    }*/
 }
