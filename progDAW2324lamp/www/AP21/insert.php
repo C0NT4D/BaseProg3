@@ -5,7 +5,7 @@ $conn = $connection->getConn();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $active = isset($_POST["active"]) ? "True" : "False";
-    $conn = new mysqli('db', 'root', 'test', "AP21");
+  
 
 
     $id = $_POST["id"];
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $active = $_POST["active"];
 
     $query = "INSERT INTO Investment (Id, Company, Investment, Date, Active)
-VALUES ('$id','$company','$investiment','$date','$active')";
+    VALUES ('$id','$company','$investiment','$date','$active')";
     mysqli_query($conn, $query);
     mysqli_close($conn);
 

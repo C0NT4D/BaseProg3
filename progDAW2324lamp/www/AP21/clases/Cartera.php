@@ -19,7 +19,6 @@ class Cartera
     public function delete($id)
     {
         $connection = new Connection();
-$conn = $connection->getConn();
         $query = "DELETE FROM Investment WHERE id='$id'";
         
 
