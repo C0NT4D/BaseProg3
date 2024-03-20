@@ -63,4 +63,21 @@ class Security extends Conexion
             return false;
         }
     }
+    private function insertUser(){
+        if (count($_POST)>0){
+            
+            $userName = $_POST["userName"];
+            $userPassword = $_POST["userPassword"];
+            $securePassword=password_hash( $userPassword, PASSWORD_BCRYPT);
+            
+            $query = "INSERT INTO users ( userName, userPassword, securePassword)
+            VALUES ('$userName','$userPassword','$securePassword')";
+            
+      
+
+
+
+        }
+
+    }
 }
