@@ -5,7 +5,7 @@ class Modelo extends Conexion
 
     function getAllProductos()
     {
-        $query = "SELECT * FROM producto";
+        $query = "SELECT * FROM PRODUCTO";
         $result = $this->conn->query($query);
 
         $productos = array();
@@ -176,7 +176,7 @@ class Modelo extends Conexion
 
     function getLineasPedidoMayor($pedido)
     {
-        $query = "SELECT MAX(IMPORTE) FROM DETALLE  WHERE PEDIDO_NUM = $pedido";
+        $query = "SELECT MAX(IMPORTE) FROM DETALLE WHERE PEDIDO_NUM = $pedido";
         $result = $this->conn->query($query);
 
         $lineasPedidoMayor = array();
