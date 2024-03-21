@@ -11,7 +11,7 @@ class Security extends Conexion
 
     public function checkLoggedIn()
     {
-        if (!isset($_SESSION["loggedIn"]) || !$_SESSION["loggedIn"]) {
+        if (!isset ($_SESSION["loggedIn"]) || !$_SESSION["loggedIn"]) {
             header("Location: " . $this->loginPage);
         }
     }
@@ -31,8 +31,9 @@ class Security extends Conexion
         }
     }
 
-    public function getUserData(){
-        if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]) {
+    public function getUserData()
+    {
+        if (isset ($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]) {
             return $_SESSION["loggedIn"];
         }
     }
@@ -63,21 +64,18 @@ class Security extends Conexion
             return false;
         }
     }
-    private function insertUser(){
-        if (count($_POST)>0){
-            
-            $userName = $_POST["userName"];
-            $userPassword = $_POST["userPassword"];
-            $securePassword=password_hash( $userPassword, PASSWORD_BCRYPT);
-            
-            $query = "INSERT INTO users ( userName, userPassword, securePassword)
-            VALUES ('$userName','$userPassword','$securePassword')";
-            
-      
-
-
+    public function singUp()
+    {
+        if (count($_POST) > 0) {
+            $name = $_POST["userName"];
+            $password = $_POST["userPassword"];
+            $securePassword = password_hash($password, PASSWORD_DEFAULT);
+            $id = random_int(12, 1000);
+            $sql = "INSERT INTO users(userId, userName, securePassword) VALUES ('$id','$name','$securePassword')";
+            $result = $this->conn->query($sql);
+            if (!$result)
+                die ("Error in query: " . $this->conn->error());
 
         }
-
     }
 }
