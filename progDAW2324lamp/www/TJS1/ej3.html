@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <p id="resultado"></p>
+    <script>
+        let radio = parseFloat(prompt("Ingrese el radio de la circunferencia:"));
+        const pi = 3.1416;
+
+        let area = pi * Math.pow(radio, 2);
+
+        document.getElementById("resultado").innerHTML = "El área de la circunferencia es: " + area;
+    </script>
+</body>
+</html>
