@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Medidas de Tela</title>
+</head>
+<body>
+    <script>
+        let metros = parseFloat(prompt("Ingrese la cantidad de metros de tela que desea:"));
+        const pulgadasPorMetro = 1 / 0.0254;
+        let pulgadas = metros * pulgadasPorMetro;
+        window.alert("Se deben pedir " + pulgadas + " pulgadas de tela.");
+    </script>
+</body>
+</html>
