@@ -64,18 +64,5 @@ class Security extends Conexion
             return false;
         }
     }
-    public function singUp()
-    {
-        if (count($_POST) > 0) {
-            $name = $_POST["userName"];
-            $password = $_POST["userPassword"];
-            $securePassword = password_hash($password, PASSWORD_DEFAULT);
-            $id = random_int(12, 1000);
-            $sql = "INSERT INTO users(userId, userName, securePassword) VALUES ('$id','$name','$securePassword')";
-            $result = $this->conn->query($sql);
-            if (!$result)
-                die ("Error in query: " . $this->conn->error());
-
-        }
-    }
+  
 }
