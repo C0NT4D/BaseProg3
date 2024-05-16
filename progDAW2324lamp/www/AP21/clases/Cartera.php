@@ -1,6 +1,6 @@
 <?php
 
-class Cartera
+/*class Cartera
 {
     private $clients = [];
 
@@ -69,4 +69,4 @@ class Cartera
         $result->close();
         mysqli_close($conn);
     }*/
-}
+

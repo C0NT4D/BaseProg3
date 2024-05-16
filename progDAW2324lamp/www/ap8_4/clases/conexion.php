@@ -1,6 +1,6 @@
 <?php
 
-class Conexion
+class conexion
 {
     private $host;
     private $userName;
@@ -37,8 +37,8 @@ class Conexion
             if ($this->conn->connect_error) {
                 die("Connection failed: " . $this->conn->connect_error);
             }
-   }
+        }
 
-}
+    }
 
 }

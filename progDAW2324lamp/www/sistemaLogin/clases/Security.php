@@ -3,6 +3,7 @@ class Security extends Conexion
 {
     private $loginPage = "login.php";
     private $homePage = "index.php";
+    private $registerPage="registrar.php";
     public function __construct()
     {
         parent::__construct();
@@ -13,6 +14,7 @@ class Security extends Conexion
     {
         if (!isset ($_SESSION["loggedIn"]) || !$_SESSION["loggedIn"]) {
             header("Location: " . $this->loginPage);
+            
         }
     }
 
@@ -29,6 +31,7 @@ class Security extends Conexion
         } else {
             return null;
         }
+
     }
 
     public function getUserData()
@@ -64,5 +67,14 @@ class Security extends Conexion
             return false;
         }
     }
-  
+    public function singUp(){
+        if (count($_POST) > 0) {
+            $name = $_POST["userName"]; 
+            $password = $_POST["userPassword"];
+            $securePassword= password_hash($password, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO users(userId, userName, userPassword, securePassword) VALUES ('$name','$password','$securePassword')";
+            $result = $this->conn->query($sql);
+        }
+    }
+    
 }
